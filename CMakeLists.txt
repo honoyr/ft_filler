@@ -105,4 +105,5 @@ add_executable(ft_filler
         libft/type_und.c
         libft/type_x.c
         ft_filler.h
+        test.rtf
         filler.c)

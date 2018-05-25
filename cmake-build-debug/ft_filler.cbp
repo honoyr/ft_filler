@@ -386,6 +386,9 @@
 		<Unit filename="/Users/dgonor/Desktop/ft_filler/libft/type_x.c">
 			<Option target="ft_filler"/>
 		</Unit>
+		<Unit filename="/Users/dgonor/Desktop/ft_filler/test.rtf">
+			<Option target="ft_filler"/>
+		</Unit>
 		<Unit filename="/Users/dgonor/Desktop/ft_filler/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

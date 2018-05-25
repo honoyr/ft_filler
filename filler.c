@@ -12,8 +12,36 @@
 
 #include "ft_filler.h"
 
+void        step_order(t_bord *data)
+{
+//    if (data->map)
+//        free(&data->map);
+    data->px = 0;
+    data->py = 0;
+    data->sizex = 0;
+    data->sizey = 0;
+//    if (data->token)
+//        free(data->token);
+    data->x = 0;
+    data->y = 0;
+}
+
 int     filler(char *s)
 {
+    char    *line;
+    int     fd;
+    t_bord  data;
+
+    line = NULL;
+//    if ((fd = open("test.rtf", O_RDONLY)) < 0)
+//        return (-1);
+    step_order(&data);
+    while (get_next_line(0, &line) > 0)
+    {
+        step_order(&data);
+        data.map = line;
+        ft_printf("%s", data.map);
+    }
     ft_printf("%s", s);
     return (0);
 }

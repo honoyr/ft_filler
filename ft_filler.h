@@ -15,6 +15,18 @@
 
 # include "./libft/libft.h"
 
+typedef struct      s_bord
+{
+    int     y;
+    int     x;
+    char    *map;
+    char    *token;
+    int     sizey;
+    int     sizex;
+    int     py;
+    int     px;
+}                   t_bord;
+
 int     filler(char *s);
 
 #endif
