@@ -10,4 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_filler.h"
 
+int     filler(char *s)
+{
+    ft_printf("%s", s);
+    return (0);
+}
+
+int     main(void)
+{
+    filler("HELLO");
+    return (0);
+}
