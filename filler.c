@@ -36,21 +36,22 @@ int     filler(char *s)
 //    if ((fd = open("test.rtf", O_RDONLY)) < 0)
 //        return (-1);
     step_order(&data);
-    while (get_next_line(0, &line) > 0)
+    while ((get_next_line(0, &line) > 0) || (!data.py && !data.px))
     {
         step_order(&data);
         data.map = line;
-        data.py = 12;
-        data.px = 13;
+        data.py = 0;
+        data.px = 0;
         ft_printf("%i %i\n", data.py, data.px);
-//        ft_printf("%s", data.map);
+
     }
-    ft_printf("%s", s);
+    ft_printf("%s", "11 6\n");
     return (0);
 }
 
 int     main(void)
 {
+//    ft_printf("%i", |);
     filler("HELLO");
     return (0);
 }
