@@ -40,7 +40,10 @@ int     filler(char *s)
     {
         step_order(&data);
         data.map = line;
-        ft_printf("%s", data.map);
+        data.py = 12;
+        data.px = 13;
+        ft_printf("%i %i\n", data.py, data.px);
+//        ft_printf("%s", data.map);
     }
     ft_printf("%s", s);
     return (0);
