@@ -10,5 +10,5 @@
 **/**/*.cpp
 **/**/*.cmake
 **/**/*.bin
-cmake-build-debug/
+*cmake-build-debug/
 *idea/
