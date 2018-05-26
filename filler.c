@@ -24,27 +24,42 @@ void        step_order(t_bord *data)
 //        free(data->token);
     data->x = 0;
     data->y = 0;
-    data->player = 'X';
+    data->player = 0;
+    data->map = NULL;
 }
 
-void        ft_pars_foll_bord(char *line, t_bord *data)
+void        ft_map_creator(char *src, t_bord *data)
 {
+    char    **map;
 
-    if (ft_strstr(line, "p1") && ft_strstr(line, "dgonor"))
-        data->player  = 'O';
-    if (ft_strstr(line, "Plateau"))
-        board_size(line, data);
-    map_creator();
+    *map = NULL;
+    if (src)
+    {
+        if (!(map = (char **)malloc(sizeof(char*) * data->sizey)))
+            return ;
+        while (ft_isdigit(*src) && src)
+            src++;
+        if (!(map = (char **)malloc(sizeof(char*) * data->sizey)))
+            return ;
+    }
+
 }
 
 void        ft_pars_bord(char *line, t_bord *data)
 {
+    static int  i;
 
-    if (ft_strstr(line, "p1") && ft_strstr(line, "dgonor"))
-        data->player  = 'O';
-    if (ft_strstr(line, "Plateau"))
-        board_size(line, data);
-    map_creator();
+    i =
+    if (!data->player)
+        if (ft_strstr(line, "p1") && ft_strstr(line, "dgonor"))
+            data->player  = 'O';
+        else
+            data->player  = 'X';
+    if (!data->sizey && !data->sizex)
+        if (ft_strstr(line, "Plateau"))
+            board_size(line, data);
+    if (ft_strstr(line, "000"))
+        ft_map_creator(line, data);
 }
 
 void       board_size(char *mapsize, t_bord *data)
@@ -74,26 +89,18 @@ int     filler(char *s)
 
     line = NULL;
     line = ft_strdup("Plateau 159 173:");
-//    if ((fd = open("test.rtf", O_RDONLY)) < 0)
-//        return (-1);
     step_order(&data);
 //    while ((get_next_line(0, &line) > 0) || (!data.py && !data.px))
-    while (line && data.player == 'O')
-    {
-        ft_pars_bord(line, &data);
-        step_order(&data);
-        data.map = line;
-        data.py = 0;
-        data.px = 0;
-        ft_printf("%i %i\n", data.py, data.px);
-        ft_strdel(&line);
-    }
     while (line)
     {
-        ft_pars_foll_bord(line, &data);
+        ft_pars_bord(line, &data);
+        data.map = line;
+        data.py = 12;
+        data.px = 13;
+        ft_printf("%i %i\n", data.py, data.px);
+        step_order(&data);
         ft_strdel(&line);
     }
-
     ft_printf("%s", "11 6\n");
     return (0);
 }

@@ -12,7 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da6320b7-1b1c-447f-b8cc-b813d95436d8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/filler.c" afterPath="$PROJECT_DIR$/filler.c" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="filler.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/filler.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
+            <state relative-caret-position="405">
+              <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -229,12 +228,12 @@
       <workItem from="1527252579229" duration="1460000" />
       <workItem from="1527257247216" duration="6082000" />
       <workItem from="1527269303113" duration="913000" />
-      <workItem from="1527335183818" duration="6245000" />
+      <workItem from="1527335183818" duration="8314000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14700000" />
+    <option name="totallyTimeSpent" value="16769000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="699" y="23" width="1635" height="1336" extended-state="0" />
@@ -268,14 +267,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/filler.c</url>
-          <line>62</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -526,14 +518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libft/ft_strstr.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libft/ft_strrev.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -574,6 +558,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/libft/ft_strstr.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/libft/ft_atoi.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -584,8 +576,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/filler.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
+        <state relative-caret-position="405">
+          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
           <folding />
         </state>
       </provider>
