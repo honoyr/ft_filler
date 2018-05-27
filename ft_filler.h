@@ -30,9 +30,8 @@ typedef struct      s_bord
 
 int     filler(char *s);
 
-void        ft_pars_bord(char *player, t_bord *data);
-
-void       whoami(char *player, t_bord *data);
+void        ft_pars_bord(char *line, t_bord *data, int *i, int *t);
+void        ft_token_creator(char *src, t_bord *data);
 void       board_size(char *mapsize, t_bord *data);
 
 #endif
