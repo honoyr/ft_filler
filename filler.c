@@ -70,7 +70,7 @@ char        **ft_map_creator(int y, int x)
     return (data);
 }
 
-void        token(char *token, t_bord *data, int *t)
+void        token_size(char *token, t_bord *data, int *t)
 {
     data->py =  ft_atoi(&token[6]);
     token = &token[6];
@@ -107,21 +107,28 @@ void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
     {
         *i += 1;
         ft_strcpy(data->map[*i], line + 4);
+        ft_printf("%s\n", data->map[*i]);
         if (*i == data->map_y - 1)
             *i = *t = -1;
     }
     if (ft_strstr(line, "Piece"))
-        token(line, data, t);
+        token_size(line, data, t);
     if (data->token && *t > 200)
     {
         *i += 1;
         ft_strcpy(data->token[*i], line);
+        ft_printf("%s\n", data->token[*i]);
         if (*i == data->py - 1)
         {
             *i = *t = -1;
-            filler_algoritm();
+            filler_algoritm(data);
         }
     }
+}
+
+void        filler_algoritm(t_bord *data)
+{
+
 }
 
 int     filler(char **line)
@@ -144,10 +151,6 @@ int     filler(char **line)
             ft_strdel(&line[i]);
             i++;
             token++;
-//        if (data.map)
-//            ft_printf("%s\n", data.map[i]);
-//        if (data.token)
-//            ft_printf("%s\n", data.token[i]);
     }
     ft_printf("%c\n", data.player);
     return (0);

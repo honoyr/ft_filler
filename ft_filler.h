@@ -31,10 +31,9 @@ typedef struct      s_bord
 int     filler(char **line);
 
 void        ft_pars_bord(char *line, t_bord *data, int *i, int *t);
-void        ft_token_creator(t_bord *data);
-//void        ft_map_creator(t_bord *data);
 char        **ft_map_creator(int y, int x);
-void        token(char *token, t_bord *data, int *t);
+void        token_size(char *token, t_bord *data, int *t);
 void       board_size(char *mapsize, t_bord *data, int *i);
+void        filler_algoritm(t_bord *data);
 
 #endif
