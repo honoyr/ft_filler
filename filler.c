@@ -25,143 +25,143 @@ void        step_order(t_bord *data)
     data->map = NULL;
 }
 
-void        ft_token_creator(char *src, t_bord *data)
+void        ft_token_creator(t_bord *data)
 {
-    char    **token;
     int     i;
 
     i = 0;
-    if (src)
+    if (!(data->token = (char**)malloc(sizeof(char*) * data->py)))
+        return ;
+    while (i != data->py)
     {
-        if (!(token = (char**)malloc(sizeof(char*) * data->py)))
-            return ;
-        while (ft_isdigit(*src) && src)
-            src++;
-        while (i != data->px)
-        {
-            token[i] = ft_strnew(data->px);
-            i++;
-        }
-        data->token = token;
+        data->token[i] = ft_strnew(data->px);
+        i++;
     }
-
 }
 
-void        ft_map_creator(char *src, t_bord *data)
+void        ft_map_creator(t_bord *data)
 {
-    char    **map;
     int     i;
 
     i = 0;
-    if (src)
+    if (!(data->map = (char**)malloc(sizeof(char*) * data->sizey)))
+        return ;
+    while (i != data->sizey)
     {
-        if (!(map = (char**)malloc(sizeof(char*) * data->sizey)))
-            return ;
-        while (ft_isdigit(*src) && src)
-            src++;
-        while (i != data->sizex)
-        {
-            map[i] = ft_strnew(data->sizex);
-            i++;
-        }
-        data->map = map;
+        data->map[i] = ft_strnew(data->sizex);
+        i++;
     }
-
 }
 
-void        token(char *token, t_bord *data)
+void        token(char *token, t_bord *data, int *t)
 {
-    int     i;
-
-    i = 0;
-    if (ft_strstr(token, "Piece"))
-    {
-        data->py =  ft_atoi(&token[6]);
-        token = &token[6];
-        while (ft_isdigit(*token) && token)
-            token++;
-        while (ft_isspace(*token) && token)
-            token++;
-        data->px =  ft_atoi(token);
-    }
+    data->py =  ft_atoi(&token[6]);
+    token = &token[6];
+    while (ft_isdigit(*token) && token)
+        token++;
+    while (ft_isspace(*token) && token)
+        token++;
+    data->px =  ft_atoi(token);
+    ft_token_creator(data);
+    *t = -1;
 }
 
 void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
 {
-    if (!data->player)
+    if ((data->player != 'O' || data->player != 'X') && ft_strstr(line, "dgonor"))
         if (ft_strstr(line, "p1") && ft_strstr(line, "dgonor"))
             data->player  = 'O';
         else
             data->player  = 'X';
     if (!data->sizey && !data->sizex)
         if (ft_strstr(line, "Plateau"))
-            board_size(line, data);
-    if (ft_strstr(line, "000"))
-        ft_map_creator(line, data);
-    if (data->map && !(ft_strstr(line, "01234")))
+            board_size(line, data, i);
+    if (*i == -1 && data->sizey != *i)
     {
         *i += 1;
-        ft_strcpy(*(data->map) + i, line + 4);
+        ft_strcpy(data->map[*i], line + 4);
     }
-    if (!data->token)
-        token(line, data);
-    if (data->token)
-        ft_token_creator(line, data);
-    if (!data->token)
+    if (ft_strstr(line, "Piece"))
+        token(line, data, t);
+    if (data->token && *t == -1)
     {
         *t += 1;
-        ft_strcpy(*(data->token) + t, line);
+        ft_strcpy(data->token[*i], line);
     }
 }
 
-void       board_size(char *mapsize, t_bord *data)
+void       board_size(char *mapsize, t_bord *data, int *i)
 {
-    int     i;
-
-    i = 0;
-    if (ft_strstr(mapsize, "Plateau"))
-    {
-        data->sizey =  ft_atoi(&mapsize[8]);
-        mapsize = &mapsize[8];
-        while (ft_isdigit(*mapsize) && mapsize)
-            mapsize++;
-        while (ft_isspace(*mapsize) && mapsize)
-            mapsize++;
-        data->sizex =  ft_atoi(mapsize);
-    }
+    data->sizey =  ft_atoi(&mapsize[8]);
+    mapsize = &mapsize[8];
+    while (ft_isdigit(*mapsize) && mapsize)
+        mapsize++;
+    while (ft_isspace(*mapsize) && mapsize)
+        mapsize++;
+    data->sizex =  ft_atoi(mapsize);
+    ft_map_creator(data);
+    *i = -1;
 }
 
 
-int     filler(char *s)
+int     filler(char **line)
 {
-    char    *line;
     int     fd;
     t_bord  data;
     static int index;
     static int token;
+    int     i;
 
+    i = 0;
     index = 0;
     token = 0;
-    line = NULL;
-    line = ft_strdup("Piece 2 3:\n ***");
+//    line = NULL;
+//    line = ft_strdup("Piece 2 3:\n ***");
     step_order(&data);
 //    while ((get_next_line(0, &line) > 0) || (!data.py && !data.px))
     while (line)
     {
-        ft_pars_bord(line, &data, &index, &token);
-        data.map = line;
-        data.py = 12;
-        data.px = 13;
-        ft_printf("%i %i\n", data.py, data.px);
-        ft_strdel(&line);
+        ft_pars_bord(line[i], &data, &index, &token);
+//        ft_printf("%c\n", data.player);
+//        ft_printf("%s\n", (*(data.map) + i));
+//        ft_printf("%s\n", (*(data.token) + i));
+        ft_strdel(&line[i]);
+        i++;
     }
-    ft_printf("%s", "11 6\n");
     return (0);
 }
 
 int     main(void)
 {
-//    ft_printf("%i", |);
-    filler("HELLO");
+    char **line;
+
+    line = (char**)malloc(sizeof(char*) * 25);
+    line[0] = ft_strdup("# -------------- VM  version 1.1 ------------- #");
+    line[1] = ft_strdup("#                                              #");
+    line[2] = ft_strdup("# 42 / filler VM Developped by: Hcao - Abanlin #");
+    line[3] = ft_strdup("# -------------------------------------------- #");
+    line[4] = ft_strdup("launched players/carli.filler");
+    line[5] = ft_strdup("$$$ exec p1 : [players/carli.filler]");
+    line[6] = ft_strdup("launched players/dgonor.filler");
+    line[7] = ft_strdup("$$$ exec p2 : [players/dgonor.filler]");
+    line[8] = ft_strdup("Plateau 3 17:");
+    line[9] = ft_strdup("    01234567890123456");
+    line[10] = ft_strdup("000 ....O............");
+    line[11] = ft_strdup("001 .............X...");
+    line[12] = ft_strdup("002 .................");
+    line[13] = ft_strdup("Piece 2 3:");
+    line[14] = ft_strdup("*..");
+    line[15] = ft_strdup("**.");
+    line[16] = ft_strdup("<got (O): [0, 5]");
+    line[17] = ft_strdup("Plateau 3 17:");
+    line[18] = ft_strdup("    01234567890123456");
+    line[19] = ft_strdup("000 ....o............");
+    line[20] = ft_strdup("001 ....oo.......X...");
+    line[21] = ft_strdup("002 .................");
+    line[22] = ft_strdup("Piece 2 2:");
+    line[23] = ft_strdup("**");
+    line[24] = ft_strdup("..");
+    line[25] = NULL;
+    filler(line);
     return (0);
 }

@@ -19,8 +19,8 @@ typedef struct      s_bord
 {
     int     y;
     int     x;
-    char    *map;
-    char    *token;
+    char    **map;
+    char    **token;
     char    player;
     int     sizey;
     int     sizex;
@@ -28,10 +28,12 @@ typedef struct      s_bord
     int     px;
 }                   t_bord;
 
-int     filler(char *s);
+int     filler(char **line);
 
 void        ft_pars_bord(char *line, t_bord *data, int *i, int *t);
-void        ft_token_creator(char *src, t_bord *data);
-void       board_size(char *mapsize, t_bord *data);
+void        ft_token_creator(t_bord *data);
+void        ft_map_creator(t_bord *data);
+void        token(char *token, t_bord *data, int *t);
+void       board_size(char *mapsize, t_bord *data, int *i);
 
 #endif
