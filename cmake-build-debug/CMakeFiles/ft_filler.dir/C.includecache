@@ -43,8 +43,10 @@ ft_printf.h
 /Users/dgonor/Desktop/ft_filler/filler.c
 ft_filler.h
 /Users/dgonor/Desktop/ft_filler/ft_filler.h
-stdio.h
--
+
+/Users/dgonor/Desktop/ft_filler/filler_algoritm.c
+ft_filler.h
+/Users/dgonor/Desktop/ft_filler/ft_filler.h
 
 /Users/dgonor/Desktop/ft_filler/ft_filler.h
 ./libft/libft.h

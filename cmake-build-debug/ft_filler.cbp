@@ -83,6 +83,9 @@
 		<Unit filename="/Users/dgonor/Desktop/ft_filler/filler.c">
 			<Option target="ft_filler"/>
 		</Unit>
+		<Unit filename="/Users/dgonor/Desktop/ft_filler/filler_algoritm.c">
+			<Option target="ft_filler"/>
+		</Unit>
 		<Unit filename="/Users/dgonor/Desktop/ft_filler/ft_filler.h">
 			<Option target="ft_filler"/>
 		</Unit>

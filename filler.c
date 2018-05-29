@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_filler.h"
-#include <stdio.h>
 
 void        step_order(t_bord *data)
 {
@@ -87,7 +86,7 @@ void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
     if (*t == 1 && data->map)
     {
         ft_strcpy(data->map[*i += 1], line + 4);
-//        printf("%s\n", data->map[*i]);
+        printf("%s\n", data->map[*i]);
         if (*i == data->map_y - 1)
         {
             *i = -1;
@@ -99,7 +98,7 @@ void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
     if (data->token && *t == -1)
     {
         ft_strcpy(data->token[*i += 1], line);
-//        printf("%s\n", data->token[*i]);
+        printf("%s\n", data->token[*i]);
         if (*i == data->py - 1)
         {
             *i = -1;
@@ -114,11 +113,6 @@ void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
         *t += 1;
 }
 
-void        filler_algoritm(t_bord *data)
-{
-    ft_printf("12 13\n");
-}
-
 int     filler(char **line)
 {
     int     fd;
@@ -131,8 +125,8 @@ int     filler(char **line)
     index = -1;
     token = 0;
     step_order(&data);
-    while (get_next_line(0, line) > 0)
-//    while (line[i])
+//    while (get_next_line(0, line) > 0)
+    while (line[i])
     {
         ft_pars_bord(line[i], &data, &index, &token);
         ft_strdel(&line[i]);

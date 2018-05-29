@@ -7,6 +7,12 @@ CMakeFiles/ft_filler.dir/filler.c.o: .././libft/libft.h
 CMakeFiles/ft_filler.dir/filler.c.o: ../filler.c
 CMakeFiles/ft_filler.dir/filler.c.o: ../ft_filler.h
 
+CMakeFiles/ft_filler.dir/filler_algoritm.c.o: .././libft/ft_printf.h
+CMakeFiles/ft_filler.dir/filler_algoritm.c.o: .././libft/get_next_line.h
+CMakeFiles/ft_filler.dir/filler_algoritm.c.o: .././libft/libft.h
+CMakeFiles/ft_filler.dir/filler_algoritm.c.o: ../filler_algoritm.c
+CMakeFiles/ft_filler.dir/filler_algoritm.c.o: ../ft_filler.h
+
 CMakeFiles/ft_filler.dir/libft/count_nbr.c.o: ../libft/count_nbr.c
 CMakeFiles/ft_filler.dir/libft/count_nbr.c.o: ../libft/ft_printf.h
 CMakeFiles/ft_filler.dir/libft/count_nbr.c.o: ../libft/get_next_line.h

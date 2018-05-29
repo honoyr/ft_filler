@@ -7,6 +7,12 @@ CMakeFiles/ft_filler.dir/filler.c.o
  /Users/dgonor/Desktop/ft_filler/./libft/libft.h
  /Users/dgonor/Desktop/ft_filler/filler.c
  /Users/dgonor/Desktop/ft_filler/ft_filler.h
+CMakeFiles/ft_filler.dir/filler_algoritm.c.o
+ /Users/dgonor/Desktop/ft_filler/./libft/ft_printf.h
+ /Users/dgonor/Desktop/ft_filler/./libft/get_next_line.h
+ /Users/dgonor/Desktop/ft_filler/./libft/libft.h
+ /Users/dgonor/Desktop/ft_filler/filler_algoritm.c
+ /Users/dgonor/Desktop/ft_filler/ft_filler.h
 CMakeFiles/ft_filler.dir/libft/count_nbr.c.o
  /Users/dgonor/Desktop/ft_filler/libft/count_nbr.c
  /Users/dgonor/Desktop/ft_filler/libft/ft_printf.h

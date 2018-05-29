@@ -150,6 +150,33 @@ filler.c.s:
 	$(MAKE) -f CMakeFiles/ft_filler.dir/build.make CMakeFiles/ft_filler.dir/filler.c.s
 .PHONY : filler.c.s
 
+filler_algoritm.o: filler_algoritm.c.o
+
+.PHONY : filler_algoritm.o
+
+# target to build an object file
+filler_algoritm.c.o:
+	$(MAKE) -f CMakeFiles/ft_filler.dir/build.make CMakeFiles/ft_filler.dir/filler_algoritm.c.o
+.PHONY : filler_algoritm.c.o
+
+filler_algoritm.i: filler_algoritm.c.i
+
+.PHONY : filler_algoritm.i
+
+# target to preprocess a source file
+filler_algoritm.c.i:
+	$(MAKE) -f CMakeFiles/ft_filler.dir/build.make CMakeFiles/ft_filler.dir/filler_algoritm.c.i
+.PHONY : filler_algoritm.c.i
+
+filler_algoritm.s: filler_algoritm.c.s
+
+.PHONY : filler_algoritm.s
+
+# target to generate assembly for a file
+filler_algoritm.c.s:
+	$(MAKE) -f CMakeFiles/ft_filler.dir/build.make CMakeFiles/ft_filler.dir/filler_algoritm.c.s
+.PHONY : filler_algoritm.c.s
+
 libft/count_nbr.o: libft/count_nbr.c.o
 
 .PHONY : libft/count_nbr.o
@@ -2781,6 +2808,9 @@ help:
 	@echo "... filler.o"
 	@echo "... filler.i"
 	@echo "... filler.s"
+	@echo "... filler_algoritm.o"
+	@echo "... filler_algoritm.i"
+	@echo "... filler_algoritm.s"
 	@echo "... libft/count_nbr.o"
 	@echo "... libft/count_nbr.i"
 	@echo "... libft/count_nbr.s"
