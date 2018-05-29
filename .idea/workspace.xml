@@ -49,8 +49,18 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+            <state relative-caret-position="255">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="git.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/git.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="9" lean-forward="false" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -68,6 +78,7 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/filler.c" />
         <option value="$PROJECT_DIR$/filler_algoritm.c" />
+        <option value="$PROJECT_DIR$/git.sh" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
@@ -162,12 +173,12 @@
       <workItem from="1527525247429" duration="10574000" />
       <workItem from="1527581150545" duration="6871000" />
       <workItem from="1527596362661" duration="7158000" />
-      <workItem from="1527607699369" duration="2106000" />
+      <workItem from="1527607699369" duration="2250000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65535000" />
+    <option name="totallyTimeSpent" value="65679000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="32" width="1451" height="1327" extended-state="0" />
@@ -221,13 +232,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libft/ft_isalnum.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/git.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -606,10 +610,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/git.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="9" lean-forward="false" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>

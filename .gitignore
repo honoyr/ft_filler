@@ -13,3 +13,5 @@
 *cmake-build-debug/*
 *idea/*
 *.xml
+.idea/
+cmake-build-debug/
