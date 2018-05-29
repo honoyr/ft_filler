@@ -1,4 +1,5 @@
-seed = 6504
+seed = 4616
+../dgonor.filler: Segfault at 2
 players/carli.filler won
 Score:
-94AGAINST71
+161AGAINST2

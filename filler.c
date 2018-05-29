@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_filler.h"
+#include <stdio.h>
 
 void        step_order(t_bord *data)
 {
@@ -45,28 +46,26 @@ char        **ft_map_creator(int y, int x)
 
 void        token_size(char *token, t_bord *data, int *t)
 {
-    data->py =  ft_atoi(&token[6]);
+    data->py = (int)ft_atoi(&token[6]);
     token = &token[6];
     while (ft_isdigit(*token) && token)
         token++;
     while (ft_isspace(*token) && token)
         token++;
-    data->px =  ft_atoi(token);
+    data->px = (int)ft_atoi(token);
     data->token = ft_map_creator(data->py, data->px);
-    *t = 200;
 }
 
 void       board_size(char *mapsize, t_bord *data, int *c)
 {
-    data->map_y =  ft_atoi(&mapsize[8]);
+    data->map_y = (int)ft_atoi(&mapsize[8]);
     mapsize = &mapsize[8];
     while (ft_isdigit(*mapsize) && mapsize)
         mapsize++;
     while (ft_isspace(*mapsize) && mapsize)
         mapsize++;
-    data->map_x =  ft_atoi(mapsize);
+    data->map_x = (int)ft_atoi(mapsize);
     data->map = ft_map_creator(data->map_y, data->map_x);
-    *c = 300;
 }
 
 void        whoami(char *line, t_bord *data)
@@ -78,85 +77,80 @@ void        whoami(char *line, t_bord *data)
 }
 void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
 {
-    int     order;
-
-    order = 0;
     if (!data->player)
         whoami(line, data);
     if (!data->map_y && !data->map_x)
         if (ft_strstr(line, "Plateau"))
             board_size(line, data, t);
-    if (*t > 301 && data->map)
+    if (ft_strstr(line, "Plateau"))
+        *t = 3;
+    if (*t == 1 && data->map)
     {
-        *i += 1;
-        ft_strcpy(data->map[*i], line + 4);
-        ft_printf("%s\n", data->map[*i]);
+        ft_strcpy(data->map[*i += 1], line + 4);
+//        printf("%s\n", data->map[*i]);
         if (*i == data->map_y - 1)
-            *i = *t = -1;
-    }
-    if (ft_strstr(line, "Piece"))
-    {
-        token_size(line, data, t);
-        if (data->player == 'O' && data->player % 2)
-            order++;
-    }
-    if (data->token && *t > 200)
-    {
-        *i += 1;
-        ft_strcpy(data->token[*i], line);
-        ft_printf("%s\n", data->token[*i]);
-        if (*i == data->py - 1)
         {
-            *i = *t = -1;
-            if (!(data->player % 2) && )
-                filler_algoritm(data);
-            while (data->token[*i += 1])
-                ft_strdel(&data->token[*i]);
+            *i = -1;
+            *t = -3;
         }
     }
+    if (ft_strstr(line, "Piece"))
+        token_size(line, data, t);
+    if (data->token && *t == -1)
+    {
+        ft_strcpy(data->token[*i += 1], line);
+//        printf("%s\n", data->token[*i]);
+        if (*i == data->py - 1)
+        {
+            *i = -1;
+            *t = 0;
+            filler_algoritm(data);
+            ft_memdel_arlen((void**)data->token);
+        }
+    }
+    if (*t > 1)
+        *t -= 1;
+    if (*t < -1)
+        *t += 1;
 }
 
-//void        filler_algoritm(t_bord *data)
-//{
-//
-//}
+void        filler_algoritm(t_bord *data)
+{
+    ft_printf("12 13\n");
+}
 
 int     filler(char **line)
 {
     int     fd;
     t_bord  data;
     static int index;
-    static int token;
+    int token;
     int     i;
 
     i = 0;
     index = -1;
     token = 0;
     step_order(&data);
-//    while ((get_next_line(0, &line) > 0) || (!data.py && !data.px))
-    while (line[i])
+    while (get_next_line(0, line) > 0)
+//    while (line[i])
     {
-//        if (token > 101 && data.map)
-//        {
-//            index += 1;
-//            ft_strcpy(data.map[index], line + 4);
-//            ft_printf("%s\n", data.map[index]);
-//            if (index == data.map_y - 1)
-//                index = token = -1;
-//        }
         ft_pars_bord(line[i], &data, &index, &token);
         ft_strdel(&line[i]);
         i++;
-        token++;
     }
-    ft_printf("%c\n", data.player);
+//    ft_printf("%c\n", data.player);
     return (0);
 }
 
-int     main(void)
+int     main(int ac, char **av)
 {
+    int     fd;
+    int     i;
     char **line;
+    char *src;
 
+    fd = 0;
+    i = 0;
     line = (char**)malloc(sizeof(char*) * 25);
     line[0] = ft_strdup("# -------------- VM  version 1.1 ------------- #");
     line[1] = ft_strdup("#                                              #");
@@ -184,6 +178,14 @@ int     main(void)
     line[23] = ft_strdup("**");
     line[24] = ft_strdup("..");
     line[25] = NULL;
+//    if ((fd = open(av[1], O_RDONLY)) < 0)
+//        return (-1);
+//    while ((get_next_line(fd, &src) > 0))
+//    {
+//        line[i] = src;
+//        ft_strdel(&src);
+//        i++;
+//    }
     filler(line);
     return (0);
 }
