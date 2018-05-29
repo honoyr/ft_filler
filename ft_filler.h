@@ -38,4 +38,6 @@ void        filler_algoritm(t_bord *data);
 void        whoami(char *line, t_bord *data);
 void        filler_algoritm(t_bord *data);
 
+void        fit_token(t_bord *data, int *i, int *j);
+
 #endif
