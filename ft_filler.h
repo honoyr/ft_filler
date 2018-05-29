@@ -35,5 +35,6 @@ char        **ft_map_creator(int y, int x);
 void        token_size(char *token, t_bord *data, int *t);
 void       board_size(char *mapsize, t_bord *data, int *i);
 void        filler_algoritm(t_bord *data);
+void        whoami(char *line, t_bord *data);
 
 #endif

@@ -21,37 +21,9 @@ void        step_order(t_bord *data)
     data->token = NULL;
     data->x = 0;
     data->y = 0;
-    data->player = 'X';
+    data->player = 0;
     data->map = NULL;
 }
-
-//void        ft_token_creator(t_bord *data)
-//{
-//    int     i;
-//
-//    i = 0;
-//    if (!(data->token = (char**)malloc(sizeof(char*) * data->py)))
-//        return ;
-//    while (i != data->py)
-//    {
-//        data->token[i] = ft_strnew(data->px);
-//        i++;
-//    }
-//}
-//
-//void        ft_map_creator(t_bord *data)
-//{
-//    int     i;
-//
-//    i = 0;
-//    if (!(data->map = (char**)malloc(sizeof(char*) * data->map_y)))
-//        return ;
-//    while (i != data->map_y)
-//    {
-//        data->map[i] = ft_strnew(data->map_x);
-//        i++;
-//    }
-//}
 
 char        **ft_map_creator(int y, int x)
 {
@@ -96,10 +68,20 @@ void       board_size(char *mapsize, t_bord *data, int *c)
     *c = 300;
 }
 
-void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
+void        whoami(char *line, t_bord *data)
 {
     if (ft_strstr(line, "p1") && ft_strstr(line, "dgonor"))
         data->player = 'O';
+    else if (ft_strstr(line, "p2") && ft_strstr(line, "dgonor"))
+        data->player = 'X';
+}
+void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
+{
+    int     order;
+
+    order = 0;
+    if (!data->player)
+        whoami(line, data);
     if (!data->map_y && !data->map_x)
         if (ft_strstr(line, "Plateau"))
             board_size(line, data, t);
@@ -112,7 +94,11 @@ void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
             *i = *t = -1;
     }
     if (ft_strstr(line, "Piece"))
+    {
         token_size(line, data, t);
+        if (data->player == 'O' && data->player % 2)
+            order++;
+    }
     if (data->token && *t > 200)
     {
         *i += 1;
@@ -120,8 +106,9 @@ void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
         ft_printf("%s\n", data->token[*i]);
         if (*i == data->py - 1)
         {
-            *i = *t = -1;
-            filler_algoritm(data);
+            *i = -1;
+            data->player == 'O' ? filler_algoritm(data): ;
+            *t = 100;
         }
     }
 }
@@ -146,11 +133,18 @@ int     filler(char **line)
 //    while ((get_next_line(0, &line) > 0) || (!data.py && !data.px))
     while (line[i])
     {
-
-            ft_pars_bord(line[i], &data, &index, &token);
-            ft_strdel(&line[i]);
-            i++;
-            token++;
+//        if (token > 101 && data.map)
+//        {
+//            index += 1;
+//            ft_strcpy(data.map[index], line + 4);
+//            ft_printf("%s\n", data.map[index]);
+//            if (index == data.map_y - 1)
+//                index = token = -1;
+//        }
+        ft_pars_bord(line[i], &data, &index, &token);
+        ft_strdel(&line[i]);
+        i++;
+        token++;
     }
     ft_printf("%c\n", data.player);
     return (0);
