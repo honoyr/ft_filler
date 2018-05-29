@@ -20,7 +20,7 @@ void        filler_algoritm(t_bord *data)
     i = j = 0;
     while (data->map[i])
     {
-        
+
     }
 //    ft_printf("12 13\n");
 
