@@ -32,13 +32,14 @@ char        **ft_map_creator(int y, int x)
 
 
     i = 0;
-    if (!(data = (char**)malloc(sizeof(char*) * y)))
+    if (!(data = (char**)malloc(sizeof(char*) * y + 1)))
         return (NULL);
     while (i != y)
     {
         data[i] = ft_strnew(x);
         i++;
     }
+    data[i] = NULL;
     return (data);
 }
 
@@ -106,17 +107,19 @@ void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
         ft_printf("%s\n", data->token[*i]);
         if (*i == data->py - 1)
         {
-            *i = -1;
-            data->player == 'O' ? filler_algoritm(data): ;
-            *t = 100;
+            *i = *t = -1;
+            if (!(data->player % 2) && )
+                filler_algoritm(data);
+            while (data->token[*i += 1])
+                ft_strdel(&data->token[*i]);
         }
     }
 }
 
-void        filler_algoritm(t_bord *data)
-{
-
-}
+//void        filler_algoritm(t_bord *data)
+//{
+//
+//}
 
 int     filler(char **line)
 {
