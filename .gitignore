@@ -12,3 +12,4 @@
 **/**/*.bin
 *cmake-build-debug/*
 *idea/*
+*.xml
