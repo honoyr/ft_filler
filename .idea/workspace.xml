@@ -15,7 +15,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/dgonor.filler" afterPath="$PROJECT_DIR$/dgonor.filler" />
       <change beforePath="$PROJECT_DIR$/filler.c" afterPath="$PROJECT_DIR$/filler.c" />
-      <change beforePath="$PROJECT_DIR$/filler_algoritm.c" afterPath="$PROJECT_DIR$/filler_algoritm.c" />
       <change beforePath="$PROJECT_DIR$/resources/filler.trace" afterPath="$PROJECT_DIR$/resources/filler.trace" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -34,8 +33,8 @@
             <file leaf-file-name="filler.c" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/filler.c">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="355">
-                    <caret line="120" column="4" lean-forward="false" selection-start-line="120" selection-start-column="4" selection-end-line="120" selection-end-column="4" />
+                  <state relative-caret-position="698">
+                    <caret line="142" column="14" lean-forward="true" selection-start-line="142" selection-start-column="14" selection-end-line="142" selection-end-column="14" />
                     <folding />
                   </state>
                 </provider>
@@ -188,12 +187,12 @@
       <workItem from="1527596362661" duration="7158000" />
       <workItem from="1527607699369" duration="6808000" />
       <workItem from="1527674728647" duration="2196000" />
-      <workItem from="1527681843929" duration="3432000" />
+      <workItem from="1527681843929" duration="4315000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75865000" />
+    <option name="totallyTimeSpent" value="76748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="32" width="1229" height="1327" extended-state="0" />
@@ -398,6 +397,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="e#941#960#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -603,8 +605,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/filler.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="120" column="4" lean-forward="false" selection-start-line="120" selection-start-column="4" selection-end-line="120" selection-end-column="4" />
+        <state relative-caret-position="698">
+          <caret line="142" column="14" lean-forward="true" selection-start-line="142" selection-start-column="14" selection-end-line="142" selection-end-column="14" />
           <folding />
         </state>
       </provider>

@@ -86,7 +86,7 @@ void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
     if (*t == 1 && data->map)
     {
         ft_strcpy(data->map[*i += 1], line + 4);
-//        printf("%s\n", data->map[*i]);
+        printf("%s\n", data->map[*i]);
         if (*i == data->map_y - 1)
         {
             *i = -1;
@@ -98,7 +98,7 @@ void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
     if (data->token && *t == -1)
     {
         ft_strcpy(data->token[*i += 1], line);
-//        printf("%s\n", data->token[*i]);
+        printf("%s\n", data->token[*i]);
         if (*i == data->py - 1)
         {
             *i = -1;
@@ -126,8 +126,8 @@ int     filler(char **line)
     index = -1;
     token = 0;
     step_order(&data);
-    while (get_next_line(0, line) > 0)
-//    while (line[i])
+//    while (get_next_line(0, line) > 0)
+    while (line[i])
     {
         ft_pars_bord(line[i], &data, &index, &token);
         ft_strdel(&line[i]);
@@ -136,17 +136,17 @@ int     filler(char **line)
     return (0);
 }
 
-//int     main(int ac, char **av)
-int     main(void)
+int     main(int ac, char **av)
+//int     main(void)
 {
-//    int     fd;
-//    int     i;
+    int     fd;
+    int     i;
     char **line;
-//    char *src;
-//
-//    fd = 0;
-//    i = 0;
-//    line = (char**)malloc(sizeof(char*) * 1024);
+    char *src;
+
+    fd = 0;
+    i = 0;
+    line = (char**)malloc(sizeof(char*) * 1024);
 //    line[0] = ft_strdup("# -------------- VM  version 1.1 ------------- #");
 //    line[1] = ft_strdup("#                                              #");
 //    line[2] = ft_strdup("# 42 / filler VM Developped by: Hcao - Abanlin #");
@@ -172,15 +172,15 @@ int     main(void)
 //    line[22] = ft_strdup("Piece 2 2:");
 //    line[23] = ft_strdup("**");
 //    line[24] = ft_strdup("..");
-//    line[1024] = NULL;
-//    if ((fd = open(av[1], O_RDONLY)) < 0)
-//        return (-1);
-//    while ((get_next_line(fd, &src) > 0))
-//    {
-//        line[i] = src;
+    line[1024] = NULL;
+    if ((fd = open(av[1], O_RDONLY)) < 0)
+        return (-1);
+    while ((get_next_line(fd, &src) > 0))
+    {
+        line[i] = src;
 //        ft_strdel(&src);
-//        i++;
-//    }
+        i++;
+    }
     filler(line);
     return (0);
 }

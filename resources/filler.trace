@@ -1,6 +1,5 @@
-seed = 6413
-X: error on input
-../dgonor.filler: Segfault at 0
+seed = 3229
+X: timedout
 players/carli.filler won
 Score:
-160AGAINST0
+164AGAINST0
