@@ -12,16 +12,23 @@
 
 #include "ft_filler.h"
 
+void        city_block(t_bord *data)
+{
+    if ()
+    {
+        data->y = data->tmp_y;
+        data->x = data->tmp_x;
+    }
+}
+
 void        fit_token(t_bord *data, int *i, int *j)
 {
     int     row;
     int     colum;
-    int     map;
     char    c;
 
     row = -1;
     colum = -1;
-    map = *i;
     c = data->player == 'O' ? 'O': 'X';
     while (data->token[++colum])
     {
@@ -34,12 +41,11 @@ void        fit_token(t_bord *data, int *i, int *j)
 //                printf("REAL %i %i\n", *i - colum, *j - row);
                 if (*i - colum >= 0 && *j - row >= 0)
                 {
-                    data->y = *i - colum;
-                    data->x = *j - row;
+                    data->tmp_y = *i - colum;
+                    data->tmp_x = *j - row;
                 }
-//                printf("%i %i\n", *i - colum, *j - row);
-                ft_printf("%i %i\n", data->y, data->x);
-//                map++;
+                city_block(data);
+//                ft_printf("%i %i\n", data->y, data->x);
             }
         }
         row = -1;

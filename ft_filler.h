@@ -19,6 +19,8 @@ typedef struct      s_bord
 {
     int     y;
     int     x;
+    int     tmp_y;
+    int     tmp_x;
     char    **map;
     char    **token;
     char    player;
@@ -38,5 +40,6 @@ void        filler_algoritm(t_bord *data);
 void        whoami(char *line, t_bord *data);
 
 void        fit_token(t_bord *data, int *i, int *j);
+void        city_block(t_bord *data);
 
 #endif

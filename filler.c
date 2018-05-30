@@ -21,6 +21,8 @@ void        step_order(t_bord *data)
     data->token = NULL;
     data->x = 0;
     data->y = 0;
+    data->tmp_x = 0;
+    data->tmp_y = 0;
     data->player = 0;
     data->map = NULL;
 }
@@ -151,9 +153,9 @@ int     main(void)
     line[2] = ft_strdup("# 42 / filler VM Developped by: Hcao - Abanlin #");
     line[3] = ft_strdup("# -------------------------------------------- #");
     line[4] = ft_strdup("launched players/dgonor.filler");
-    line[5] = ft_strdup("$$$ exec p1 : [players/dgonor.filler]");
+    line[5] = ft_strdup("$$$ exec p2 : [players/dgonor.filler]");
     line[6] = ft_strdup("launched players/carli.filler");
-    line[7] = ft_strdup("$$$ exec p2 : [players/carli.filler]");
+    line[7] = ft_strdup("$$$ exec p1 : [players/carli.filler]");
     line[8] = ft_strdup("Plateau 3 17:");
     line[9] = ft_strdup("    01234567890123456");
     line[10] = ft_strdup("000 ....O............");
