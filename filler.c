@@ -151,9 +151,9 @@ int     main(int ac, char **av)
     line[2] = ft_strdup("# 42 / filler VM Developped by: Hcao - Abanlin #");
     line[3] = ft_strdup("# -------------------------------------------- #");
     line[4] = ft_strdup("launched players/dgonor.filler");
-    line[5] = ft_strdup("$$$ exec p1 : [players/dgonor.filler]");
+    line[5] = ft_strdup("$$$ exec p2 : [players/dgonor.filler]");
     line[6] = ft_strdup("launched players/carli.filler");
-    line[7] = ft_strdup("$$$ exec p2 : [players/carli.filler]");
+    line[7] = ft_strdup("$$$ exec p1 : [players/carli.filler]");
     line[8] = ft_strdup("Plateau 3 17:");
     line[9] = ft_strdup("    01234567890123456");
     line[10] = ft_strdup("000 ....O............");

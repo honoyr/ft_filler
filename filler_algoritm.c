@@ -16,27 +16,25 @@ void        fit_token(t_bord *data, int *i, int *j)
 {
     int     row;
     int     colum;
+    int     map;
+    char    c;
 
     row = -1;
     colum = -1;
-    if (data->player == 'O')
+    map = *i;
+    c = data->player == 'O' ? 'O': 'X';
+    while (data->token[++colum])
     {
-        while (data->token[++colum])
+        while(data->token[colum][++row])
         {
-            while(data->token[colum][++row])
+            if(data->token[colum][row] == '*' && data->map[map][*j] == c)
             {
-                if(data->token[colum][row] = '*' && data->map[*i][*j] == 'O')
-                {
-                    ft_printf("POSITION = %i %i\n", *i, *j);
-                }
+                printf("POSITION = %i %i\n", *i, *j);
+                map++;
             }
-            row = -1;
         }
+        row = -1;
     }
-//    else if (data->player == 'X')
-//    {
-//
-//    }
 }
 
 void        filler_algoritm(t_bord *data)
