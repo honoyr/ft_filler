@@ -32,16 +32,16 @@ void        fit_token(t_bord *data, int *i, int *j)
 //                printf("POSITION = %i %i\n", *i, *j);
 //                printf("POINT = %i %i\n", colum, row);
 //                printf("REAL %i %i\n", *i - colum, *j - row);
-                if (*i - colum >= 0 && *j - row >= 0)
-                {
-                    data->y = *i - colum;
-                    data->x = *j - row;
-                }
+                data->y = *i - colum;
+                data->x = *j - row;
 //                printf("%i %i\n", *i - colum, *j - row);
                 ft_printf("%i %i\n", data->y, data->x);
 //                map++;
+                break ;
             }
         }
+        if (data->y && data->y)
+            break ;
         row = -1;
     }
 }
@@ -60,4 +60,5 @@ void        filler_algoritm(t_bord *data)
         }
         j = -1;
     }
+//    ft_printf("%i %i\n", data->p, data->x);
 }

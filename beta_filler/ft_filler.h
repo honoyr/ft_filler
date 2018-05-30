@@ -28,7 +28,7 @@ typedef struct      s_bord
     int     px;
 }                   t_bord;
 
-int     filler(char **line);
+int     filler(char *line);
 
 void        ft_pars_bord(char *line, t_bord *data, int *i, int *t);
 char        **ft_map_creator(int y, int x);
