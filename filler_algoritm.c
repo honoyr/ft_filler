@@ -35,7 +35,7 @@ void        fit_token(t_bord *data, int *i, int *j)
                 data->y = *i - colum;
                 data->x = *j - row;
 //                printf("%i %i\n", *i - colum, *j - row);
-//                printf("%i %i\n", *i, *j);
+                ft_printf("%i %i\n", data->y, data->x);
 //                map++;
                 break ;
             }
