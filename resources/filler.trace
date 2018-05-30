@@ -1,5 +1,6 @@
-seed = 2789
-../dgonor.filler: Segfault at 2
+seed = 6413
+X: error on input
+../dgonor.filler: Segfault at 0
 players/carli.filler won
 Score:
-161AGAINST2
+160AGAINST0

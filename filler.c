@@ -86,7 +86,7 @@ void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
     if (*t == 1 && data->map)
     {
         ft_strcpy(data->map[*i += 1], line + 4);
-        printf("%s\n", data->map[*i]);
+//        printf("%s\n", data->map[*i]);
         if (*i == data->map_y - 1)
         {
             *i = -1;
@@ -98,12 +98,13 @@ void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
     if (data->token && *t == -1)
     {
         ft_strcpy(data->token[*i += 1], line);
-        printf("%s\n", data->token[*i]);
+//        printf("%s\n", data->token[*i]);
         if (*i == data->py - 1)
         {
             *i = -1;
             *t = 0;
-            filler_algoritm(data);
+//            filler_algoritm(data);
+            printf("%i %i\n", 12, 13);
             ft_memdel_arlen((void**)data->token);
         }
     }
@@ -117,7 +118,7 @@ int     filler(char **line)
 {
     int     fd;
     t_bord  data;
-    static int index;
+    int index;
     int token;
     int     i;
 
@@ -125,53 +126,53 @@ int     filler(char **line)
     index = -1;
     token = 0;
     step_order(&data);
-//    while (get_next_line(0, line) > 0)
-    while (line[i])
+    while (get_next_line(0, line) > 0)
+//    while (line[i])
     {
         ft_pars_bord(line[i], &data, &index, &token);
         ft_strdel(&line[i]);
         i++;
     }
-//    ft_printf("%c\n", data.player);
     return (0);
 }
 
-int     main(int ac, char **av)
+//int     main(int ac, char **av)
+int     main(void)
 {
-    int     fd;
-    int     i;
+//    int     fd;
+//    int     i;
     char **line;
-    char *src;
-
-    fd = 0;
-    i = 0;
-    line = (char**)malloc(sizeof(char*) * 25);
-    line[0] = ft_strdup("# -------------- VM  version 1.1 ------------- #");
-    line[1] = ft_strdup("#                                              #");
-    line[2] = ft_strdup("# 42 / filler VM Developped by: Hcao - Abanlin #");
-    line[3] = ft_strdup("# -------------------------------------------- #");
-    line[4] = ft_strdup("launched players/dgonor.filler");
-    line[5] = ft_strdup("$$$ exec p2 : [players/dgonor.filler]");
-    line[6] = ft_strdup("launched players/carli.filler");
-    line[7] = ft_strdup("$$$ exec p1 : [players/carli.filler]");
-    line[8] = ft_strdup("Plateau 3 17:");
-    line[9] = ft_strdup("    01234567890123456");
-    line[10] = ft_strdup("000 ....O............");
-    line[11] = ft_strdup("001 .............X...");
-    line[12] = ft_strdup("002 .................");
-    line[13] = ft_strdup("Piece 2 3:");
-    line[14] = ft_strdup("*..");
-    line[15] = ft_strdup("**.");
-    line[16] = ft_strdup("<got (O): [0, 5]");
-    line[17] = ft_strdup("Plateau 3 17:");
-    line[18] = ft_strdup("    01234567890123456");
-    line[19] = ft_strdup("000 ....o............");
-    line[20] = ft_strdup("001 ....oo.......X...");
-    line[21] = ft_strdup("002 .................");
-    line[22] = ft_strdup("Piece 2 2:");
-    line[23] = ft_strdup("**");
-    line[24] = ft_strdup("..");
-    line[25] = NULL;
+//    char *src;
+//
+//    fd = 0;
+//    i = 0;
+//    line = (char**)malloc(sizeof(char*) * 1024);
+//    line[0] = ft_strdup("# -------------- VM  version 1.1 ------------- #");
+//    line[1] = ft_strdup("#                                              #");
+//    line[2] = ft_strdup("# 42 / filler VM Developped by: Hcao - Abanlin #");
+//    line[3] = ft_strdup("# -------------------------------------------- #");
+//    line[4] = ft_strdup("launched players/dgonor.filler");
+//    line[5] = ft_strdup("$$$ exec p1 : [players/dgonor.filler]");
+//    line[6] = ft_strdup("launched players/carli.filler");
+//    line[7] = ft_strdup("$$$ exec p2 : [players/carli.filler]");
+//    line[8] = ft_strdup("Plateau 3 17:");
+//    line[9] = ft_strdup("    01234567890123456");
+//    line[10] = ft_strdup("000 ....O............");
+//    line[11] = ft_strdup("001 .............X...");
+//    line[12] = ft_strdup("002 .................");
+//    line[13] = ft_strdup("Piece 2 3:");
+//    line[14] = ft_strdup("*..");
+//    line[15] = ft_strdup("**.");
+//    line[16] = ft_strdup("<got (O): [0, 5]");
+//    line[17] = ft_strdup("Plateau 3 17:");
+//    line[18] = ft_strdup("    01234567890123456");
+//    line[19] = ft_strdup("000 ....o............");
+//    line[20] = ft_strdup("001 ....oo.......X...");
+//    line[21] = ft_strdup("002 .................");
+//    line[22] = ft_strdup("Piece 2 2:");
+//    line[23] = ft_strdup("**");
+//    line[24] = ft_strdup("..");
+//    line[1024] = NULL;
 //    if ((fd = open(av[1], O_RDONLY)) < 0)
 //        return (-1);
 //    while ((get_next_line(fd, &src) > 0))

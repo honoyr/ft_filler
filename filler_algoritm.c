@@ -27,12 +27,21 @@ void        fit_token(t_bord *data, int *i, int *j)
     {
         while(data->token[colum][++row])
         {
-            if(data->token[colum][row] == '*' && data->map[map][*j] == c)
+            if(data->token[colum][row] == '*' && data->map[*i][*j] == c)
             {
-                printf("POSITION = %i %i\n", *i, *j);
-                map++;
+//                printf("POSITION = %i %i\n", *i, *j);
+//                printf("POINT = %i %i\n", colum, row);
+//                printf("REAL %i %i\n", *i - colum, *j - row);
+                data->y = *i - colum;
+                data->x = *j - row;
+//                printf("%i %i\n", *i - colum, *j - row);
+//                printf("%i %i\n", *i, *j);
+//                map++;
+                break ;
             }
         }
+        if (data->y && data->y)
+            break ;
         row = -1;
     }
 }
