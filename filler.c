@@ -136,7 +136,7 @@ int     filler(char **line)
     token = 0;
     step_order(&data);
 //    while (get_next_line(0, &line) > 0)
-    while (line[i])
+    while (line[i] && line)
     {
         ft_pars_bord(line[i], &data, &index, &token);
         ft_strdel(&line[i]);

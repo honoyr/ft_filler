@@ -17,9 +17,8 @@ int        distance_block(t_bord *data, int *i, int *j)
     int     tem_y;
     int     tem_x;
 
-//    tem_y = 0;
-//    tem_x = 0;
-//    len = 0;
+    tem_y = 0;
+    tem_x = 0;
 
     tem_y = *i - data->tmp_y;
     if (tem_y < 0)
@@ -34,11 +33,11 @@ void        city_block(t_bord *data)
 {
     int     i;
     int     j;
-    static int     len;
+    int     len;
 
     i = -1;
     j = -1;
-    len = 0;
+//    len = 0;
     while (data->map[++i])
     {
         while (data->map[i][++j])
@@ -46,11 +45,12 @@ void        city_block(t_bord *data)
             if(data->map[i][j] == data->enemy || data->map[i][j] == data->enemy + 32)
             {
                 len = distance_block(data, &i, &j);
-                if (data->dist > len)
+                if (len < data->dist)
                 {
                     data->dist = len;
                     data->y = data->tmp_y;
                     data->x = data->tmp_x;
+                    ft_printf("COORDINATES = %i %i\n", data->y, data->x);
                 }
             }
         }
@@ -71,16 +71,13 @@ void        fit_token(t_bord *data, int *i, int *j)
         {
             if(data->token[colum][row] == '*' && (data->map[*i][*j] == data->player || data->map[*i][*j] == data->player + 32))
             {
-//                printf("POSITION = %i %i\n", *i, *j);
-//                printf("POINT = %i %i\n", colum, row);
-//                printf("REAL %i %i\n", *i - colum, *j - row);
                 if (*i - colum >= 0 && *j - row >= 0)
                 {
                     data->tmp_y = *i - colum;
                     data->tmp_x = *j - row;
+                    ft_printf("TMP = %i %i\n", data->tmp_y, data->tmp_x);
                     city_block(data);
                 }
-//
             }
         }
         row = -1;
@@ -102,4 +99,5 @@ void        filler_algoritm(t_bord *data)
         j = -1;
     }
     ft_printf("%i %i\n", data->y, data->x);
+    data->dist = 10000;
 }

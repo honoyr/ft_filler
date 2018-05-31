@@ -101,5 +101,10 @@ void        filler_algoritm(t_bord *data)
         }
         j = -1;
     }
-    ft_printf("%i %i\n", data->y, data->x);
+    if (data->y && data->x)
+        ft_printf("%i %i\n", data->y, data->x);
+//    ft_putnbr(data->y);
+//    ft_putchar(' ');
+//    ft_putnbr(data->x);
+//    ft_putchar('\n');
 }
