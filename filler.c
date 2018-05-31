@@ -14,6 +14,7 @@
 
 void        step_order(t_bord *data)
 {
+    data->dist = 0;
     data->px = 0;
     data->py = 0;
     data->map_x = 0;
@@ -24,6 +25,7 @@ void        step_order(t_bord *data)
     data->tmp_x = 0;
     data->tmp_y = 0;
     data->player = 0;
+    data->enemy = 0;
     data->map = NULL;
 }
 
@@ -72,9 +74,15 @@ void       board_size(char *mapsize, t_bord *data, int *c)
 void        whoami(char *line, t_bord *data)
 {
     if (ft_strstr(line, "p1") && ft_strstr(line, "dgonor"))
+    {
         data->player = 'O';
+        data->enemy = 'X';
+    }
     else if (ft_strstr(line, "p2") && ft_strstr(line, "dgonor"))
+    {
         data->player = 'X';
+        data->enemy = 'O';
+    }
 }
 void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
 {

@@ -24,10 +24,12 @@ typedef struct      s_bord
     char    **map;
     char    **token;
     char    player;
+    char    enemy;
     int     map_y;
     int     map_x;
     int     py;
     int     px;
+    int     dist;
 }                   t_bord;
 
 int     filler(char **line);
