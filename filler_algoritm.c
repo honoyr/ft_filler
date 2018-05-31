@@ -21,21 +21,20 @@ int        distance_block(t_bord *data, int *i, int *j)
 //    tem_x = 0;
 //    len = 0;
 
-    tem_y = data->tmp_y - data->tmp_x;
+    tem_y = *i - data->tmp_y;
     if (tem_y < 0)
         tem_y *= -1;
-    tem_x = *i - *j;
+    tem_x = *j - data->tmp_x;
     if (tem_x < 0)
         tem_x *= -1;
-    data->dist = tem_y + tem_x;
-    return (data->dist);
+    return (tem_y + tem_x);
 }
 
 void        city_block(t_bord *data)
 {
     int     i;
     int     j;
-    int     len;
+    static int     len;
 
     i = -1;
     j = -1;
@@ -46,12 +45,13 @@ void        city_block(t_bord *data)
         {
             if(data->map[i][j] == data->enemy || data->map[i][j] == data->enemy + 32)
             {
+                len = distance_block(data, &i, &j);
                 if (data->dist > len)
                 {
+                    data->dist = len;
                     data->y = data->tmp_y;
                     data->x = data->tmp_x;
                 }
-                len = distance_block(data, &i, &j);
             }
         }
         j = -1;
@@ -69,7 +69,7 @@ void        fit_token(t_bord *data, int *i, int *j)
     {
         while(data->token[colum][++row])
         {
-            if(data->token[colum][row] == '*' && data->map[*i][*j] == data->player)
+            if(data->token[colum][row] == '*' && (data->map[*i][*j] == data->player || data->map[*i][*j] == data->player + 32))
             {
 //                printf("POSITION = %i %i\n", *i, *j);
 //                printf("POINT = %i %i\n", colum, row);
