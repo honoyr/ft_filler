@@ -71,6 +71,32 @@ void        city_block(t_bord *data)
     }
 }
 
+int         check_enemy(t_bord *data, int i, int j)
+{
+    int     row;
+    int     colum;
+    int     flag;
+
+    row = -1;
+    colum = -1;
+    flag = 0;
+    while (data->token[++colum])
+    {
+        while(data->token[colum][++row])
+        {
+            if(data->token[colum][row] == '*' &&
+               (data->map[i][j] != data->enemy || data->map[i][j] != data->enemy + 32) &&
+            (data->token[colum][row] == '*' &&
+             (data->map[i][j] == data->player || data->map[i][j] == data->player + 32) && !flag))
+                flag = 1;
+        }
+        row = -1;
+    }
+    if (flag)
+        return (1);
+    return (0);
+}
+
 void        fit_token(t_bord *data, int *i, int *j)
 {
     int     row;
@@ -82,14 +108,18 @@ void        fit_token(t_bord *data, int *i, int *j)
     {
         while(data->token[colum][++row])
         {
-            if(data->token[colum][row] == '*' && (data->map[*i][*j] == data->player || data->map[*i][*j] == data->player + 32))
+            if(data->token[colum][row] == '*' &&
+               (data->map[*i][*j] == data->player || data->map[*i][*j] == data->player + 32))
             {
                 if (*i - colum >= 0 && *j - row >= 0)
                 {
-                    data->tmp_y = *i - colum;
-                    data->tmp_x = *j - row;
+                    if (check_enemy(data, (*i), (*j)))
+                    {
+                        data->tmp_y = *i - colum;
+                        data->tmp_x = *j - row;
 //                    ft_printf("TMP = %i %i\n", data->tmp_y, data->tmp_x);
-                    city_block(data);
+                        city_block(data);
+                    }
                 }
             }
         }
