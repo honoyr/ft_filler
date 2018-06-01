@@ -14,6 +14,7 @@
 
 void        step_order(t_bord *data)
 {
+    data->dist = 10000;
     data->px = 0;
     data->py = 0;
     data->map_x = 0;
@@ -21,7 +22,10 @@ void        step_order(t_bord *data)
     data->token = NULL;
     data->x = 0;
     data->y = 0;
+    data->tmp_x = 0;
+    data->tmp_y = 0;
     data->player = 0;
+    data->enemy = 0;
     data->map = NULL;
 }
 
@@ -32,7 +36,7 @@ char        **ft_map_creator(int y, int x)
 
 
     i = 0;
-    if (!(data = (char**)malloc(sizeof(char*) * y + 1)))
+    if (!(data = (char**)malloc(sizeof(char*) * (y + 1))))
         return (NULL);
     while (i != y)
     {
@@ -70,9 +74,16 @@ void       board_size(char *mapsize, t_bord *data, int *c)
 void        whoami(char *line, t_bord *data)
 {
     if (ft_strstr(line, "p1") && ft_strstr(line, "dgonor"))
+    {
         data->player = 'O';
+        data->enemy = 'X';
+    }
+
     else if (ft_strstr(line, "p2") && ft_strstr(line, "dgonor"))
+    {
         data->player = 'X';
+        data->enemy = 'O';
+    }
 }
 void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
 {
@@ -86,10 +97,10 @@ void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
     if (*t == 1 && data->map)
     {
         ft_strcpy(data->map[*i += 1], line + 4);
-        printf("%s\n", data->map[*i]);
+//        printf("%s\n", data->map[*i]);
         if (*i == data->map_y - 1)
         {
-            printf("\n");
+            printf("\n\n");
             *i = -1;
             *t = -3;
         }
@@ -99,10 +110,10 @@ void        ft_pars_bord(char *line, t_bord *data, int *i, int *t)
     if (data->token && *t == -1)
     {
         ft_strcpy(data->token[*i += 1], line);
-        printf("%s\n", data->token[*i]);
+//        printf("%s\n", data->token[*i]);
         if (*i == data->py - 1)
         {
-            printf("\n");
+            printf("\n\n");
             *i = -1;
             *t = 0;
             filler_algoritm(data);

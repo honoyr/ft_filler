@@ -38,19 +38,32 @@ void        city_block(t_bord *data)
     i = -1;
     j = -1;
 //    len = 0;
+//    ft_printf("I'm here 1\n");
+//    ft_printf("data->enemy = %c\n", data->enemy);
+
+//    while (data->map[++i])
+//    {
+//        while (data->map[i][++j])
+//            ft_printf("%c", data->map[i][j]);
+//        ft_printf("\n");
+//        j = -1;
+//    }
+//    i = -1;
+//    j = -1;
     while (data->map[++i])
     {
         while (data->map[i][++j])
         {
             if(data->map[i][j] == data->enemy || data->map[i][j] == data->enemy + 32)
             {
+//                ft_printf("I'm here 2\n");
                 len = distance_block(data, &i, &j);
                 if (len < data->dist)
                 {
                     data->dist = len;
                     data->y = data->tmp_y;
                     data->x = data->tmp_x;
-                    ft_printf("COORDINATES = %i %i\n", data->y, data->x);
+//                    ft_printf("COORDINATES = %i %i\n", data->y, data->x);
                 }
             }
         }
@@ -75,7 +88,7 @@ void        fit_token(t_bord *data, int *i, int *j)
                 {
                     data->tmp_y = *i - colum;
                     data->tmp_x = *j - row;
-                    ft_printf("TMP = %i %i\n", data->tmp_y, data->tmp_x);
+//                    ft_printf("TMP = %i %i\n", data->tmp_y, data->tmp_x);
                     city_block(data);
                 }
             }
