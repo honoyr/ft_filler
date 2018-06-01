@@ -1,4 +1,6 @@
-seed = 8698
+seed = 1611
+X: error on input
+../beta_filler/dgonor.filler: Segfault at 3
 players/carli.filler won
 Score:
-165AGAINST8
+162AGAINST3

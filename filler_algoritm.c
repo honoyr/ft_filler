@@ -75,24 +75,45 @@ int         check_enemy(t_bord *data, int i, int j)
 {
     int     row;
     int     colum;
-    int     flag;
+    int     player;
+    int     enemy;
+    int     star;
 
     row = -1;
     colum = -1;
-    flag = 0;
+    player = 0;
+    enemy = 0;
+    star = 0;
     while (data->token[++colum])
     {
         while(data->token[colum][++row])
         {
+            if (data->token[colum][row] == '*')
+                star++;
             if(data->token[colum][row] == '*' &&
-               (data->map[i][j] != data->enemy || data->map[i][j] != data->enemy + 32) &&
-            (data->token[colum][row] == '*' &&
-             (data->map[i][j] == data->player || data->map[i][j] == data->player + 32) && !flag))
-                flag = 1;
+               (data->map[i][j] != data->enemy || data->map[i][j] != data->enemy + 32))
+                enemy++;
+            if (data->token[colum][row] == '*' &&
+                (data->map[i][j] == data->player || data->map[i][j] == data->player + 32)) // вывод в данной части не коректен
+                player++;
+            j++;
         }
         row = -1;
+        i++;
     }
-    if (flag)
+//    row = -1;
+//    colum = -1;
+//    while (data->token[++colum])
+//    {
+//        while(data->token[colum][++row])
+//        {
+//
+//        }
+//        row = -1;
+//    }
+//    ft_printf("\nSTAR = %i\nENEMY = %i\nPLAYER = %i\n", star, enemy, player);
+//    if (enemy == star)
+    if (enemy == star && player == 1)
         return (1);
     return (0);
 }
@@ -113,7 +134,7 @@ void        fit_token(t_bord *data, int *i, int *j)
             {
                 if (*i - colum >= 0 && *j - row >= 0)
                 {
-                    if (check_enemy(data, (*i), (*j)))
+                    if (check_enemy(data, (*i - colum), (*j - row)))
                     {
                         data->tmp_y = *i - colum;
                         data->tmp_x = *j - row;
