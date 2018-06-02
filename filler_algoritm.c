@@ -91,15 +91,13 @@ int         check_enemy(t_bord *data, int i, int j)
             if (data->token[colum][row] == '*')
                 star++;
             if(data->token[colum][row] == '*' &&
-               (data->map[i][j] != data->enemy || data->map[i][j] != data->enemy + 32))
+               (data->map[i + colum][j + row] != data->enemy || data->map[i + colum][j + row] != data->enemy + 32))
                 enemy++;
             if (data->token[colum][row] == '*' &&
-                (data->map[i][j] == data->player || data->map[i][j] == data->player + 32)) // вывод в данной части не коректен
+                (data->map[i + colum][j + row] == data->player || data->map[i + colum][j + row] == data->player + 32)) // вывод в данной части не коректен
                 player++;
-            j++;
         }
         row = -1;
-        i++;
     }
 //    row = -1;
 //    colum = -1;
@@ -111,7 +109,7 @@ int         check_enemy(t_bord *data, int i, int j)
 //        }
 //        row = -1;
 //    }
-//    ft_printf("\nSTAR = %i\nENEMY = %i\nPLAYER = %i\n", star, enemy, player);
+//    ft_printf("\nSTAR = %i\nENEMY = %i\nPLAYER = %i\nCOORDIN = %i %i\n", star, enemy, player, data->tmp_y, data->tmp_x);
 //    if (enemy == star)
     if (enemy == star && player == 1)
         return (1);

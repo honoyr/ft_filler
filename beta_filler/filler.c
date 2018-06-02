@@ -139,9 +139,12 @@ int     filler(char *line)
     index = -1;
     token = 0;
     step_order(&data);
+    fd = open("shit.txt", O_CREAT | O_WRONLY | O_APPEND);
     while (get_next_line(0, &line) > 0)
 //    while (line[i])
     {
+        ft_putstr_fd(line, fd);
+        ft_putstr_fd("\n", fd);
         ft_pars_bord(line, &data, &index, &token);
         ft_strdel(&line);
 //        i++;
