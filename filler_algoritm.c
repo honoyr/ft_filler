@@ -86,15 +86,26 @@ int         check_enemy(t_bord *data, int i, int j)
     star = 0;
     while (data->token[++colum])
     {
-        while(data->token[colum][++row])
+//        while(data->token[colum][++row])
+//        {
+//            if (i + colum <= data->map_y && j + row <= data->map_x && data->token[colum][row] == '*')
+//                star++;
+//            if(i + colum <= data->map_y && j + row <= data->map_x && data->token[colum][row] == '*' &&
+//               (data->map[i + colum][j + row] != data->enemy))
+//                enemy++;
+//            if (i + colum <= data->map_y && j + row <= data->map_x && data->token[colum][row] == '*' &&
+//                (data->map[i + colum][j + row] == data->player)) // вывод в данной части не коректен
+//                player++;
+//        }
+        while(data->token[colum][++row] && i + colum <= data->map_y && j + row <= data->map_x )
         {
             if (data->token[colum][row] == '*')
                 star++;
             if(data->token[colum][row] == '*' &&
-               (data->map[i + colum][j + row] != data->enemy || data->map[i + colum][j + row] != data->enemy + 32))
+               (data->map[i + colum][j + row] != data->enemy))
                 enemy++;
             if (data->token[colum][row] == '*' &&
-                (data->map[i + colum][j + row] == data->player || data->map[i + colum][j + row] == data->player + 32)) // вывод в данной части не коректен
+                (data->map[i + colum][j + row] == data->player)) // вывод в данной части не коректен
                 player++;
         }
         row = -1;
@@ -128,10 +139,12 @@ void        fit_token(t_bord *data, int *i, int *j)
         while(data->token[colum][++row])
         {
             if(data->token[colum][row] == '*' &&
-               (data->map[*i][*j] == data->player || data->map[*i][*j] == data->player + 32))
+               (data->map[*i][*j] == data->player))
             {
+//                ft_printf("TMP = %i %i\n", *i, *j);
                 if (*i - colum >= 0 && *j - row >= 0)
                 {
+//                    ft_printf("COR = %i %i\n", *i - colum, *j - row);
                     if (check_enemy(data, (*i - colum), (*j - row)))
                     {
                         data->tmp_y = *i - colum;
