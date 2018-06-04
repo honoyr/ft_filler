@@ -35,8 +35,8 @@
             <file leaf-file-name="filler_algoritm.c" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/filler_algoritm.c">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="460">
-                    <caret line="101" column="39" lean-forward="false" selection-start-line="101" selection-start-column="39" selection-end-line="101" selection-end-column="39" />
+                  <state relative-caret-position="740">
+                    <caret line="160" column="41" lean-forward="true" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
                     <folding />
                   </state>
                 </provider>
@@ -63,7 +63,7 @@
       <file leaf-file-name="filler.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/filler.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3930">
+            <state relative-caret-position="870">
               <caret line="262" column="42" lean-forward="false" selection-start-line="262" selection-start-column="42" selection-end-line="262" selection-end-column="42" />
               <folding />
             </state>
@@ -123,7 +123,7 @@
       <file leaf-file-name="filler.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/beta_filler/filler.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2158">
+            <state relative-caret-position="2370">
               <caret line="158" column="16" lean-forward="false" selection-start-line="158" selection-start-column="16" selection-end-line="158" selection-end-column="16" />
               <folding />
             </state>
@@ -287,11 +287,12 @@
       <workItem from="1528024735782" duration="1117000" />
       <workItem from="1528030631751" duration="5887000" />
       <workItem from="1528108890936" duration="5792000" />
+      <workItem from="1528131579737" duration="3598000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126134000" />
+    <option name="totallyTimeSpent" value="129732000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="131" y="23" width="1290" height="1327" extended-state="0" />
@@ -328,7 +329,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/filler_algoritm.c</url>
-          <line>117</line>
+          <line>106</line>
           <option name="timeStamp" value="120" />
         </line-breakpoint>
       </breakpoints>
@@ -679,7 +680,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/beta_filler/filler.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2158">
+        <state relative-caret-position="2370">
           <caret line="158" column="16" lean-forward="false" selection-start-line="158" selection-start-column="16" selection-end-line="158" selection-end-column="16" />
           <folding />
         </state>
@@ -695,7 +696,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/filler.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3930">
+        <state relative-caret-position="870">
           <caret line="262" column="42" lean-forward="false" selection-start-line="262" selection-start-column="42" selection-end-line="262" selection-end-column="42" />
           <folding />
         </state>
@@ -703,8 +704,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/filler_algoritm.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="101" column="39" lean-forward="false" selection-start-line="101" selection-start-column="39" selection-end-line="101" selection-end-column="39" />
+        <state relative-caret-position="740">
+          <caret line="160" column="41" lean-forward="true" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
           <folding />
         </state>
       </provider>

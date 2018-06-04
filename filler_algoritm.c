@@ -74,49 +74,50 @@ void        city_block(t_bord *data)
 int         check_enemy(t_bord *data, int i, int j)
 {
     int     row;
-    int     colum;
+    int     column;
     int     player;
     int     enemy;
     int     star;
     int     dot;
 
     row = -1;
-    colum = -1;
+    column = -1;
     player = 0;
     enemy = 0;
     star = 0;
     dot = 0;
-    while (data->token[++colum])
+    while (data->token[++column] && ((i + column) < data->map_y))
     {
+
 //        while(data->token[colum][++row])
-//        {
-//            if (i + colum <= data->map_y && j + row <= data->map_x && data->token[colum][row] == '*')
-//                star++;
-//            if(i + colum <= data->map_y && j + row <= data->map_x && data->token[colum][row] == '*' &&
-//               (data->map[i + colum][j + row] != data->enemy))
-//                enemy++;
-//            if (i + colum <= data->map_y && j + row <= data->map_x && data->token[colum][row] == '*' &&
-//                (data->map[i + colum][j + row] == data->player)) // вывод в данной части не коректен
-//                player++;
-//        }
-        while(data->token[colum][++row])
-//        while(data->token[colum][++row] && ((i + colum) <= data->map_y) && ((j + row) <= data->map_x))
+        while(data->token[column][++row]  && ((j + row) < data->map_x))
         {
-            if (data->token[colum][row] == '*')
+            if (data->token[column][row] == '*')
                 star++;
-            if(data->token[colum][row] == '*' &&
-               ((data->map[i + colum][j + row] != data->enemy) ||
-               (data->map[i + colum][j + row] == '.')))
+            if(data->token[column][row] == '*' &&
+               ((data->map[i + column][j + row] != data->enemy)))
                 enemy++;
 //            if(data->token[colum][row] == '*' &&
 //               (data->map[i + colum][j + row] == '.'))
 //                dot++;
-            if (data->token[colum][row] == '*' &&
-                (data->map[i + colum][j + row] == data->player))
+            if (data->token[column][row] == '*' &&
+                (data->map[i + column][j + row] == data->player))
                 player++;
         }
+        if (row < data->px)
+        {
+            while (data->token[column][row])
+            {
+                if (data->token[column][row] == '*')
+                    return (0);
+                row++;
+            }
+        }
+
         row = -1;
     }
+    if (column < data->py)
+        return (0);
 //    row = -1;
 //    colum = -1;
 //    while (data->token[++colum])
