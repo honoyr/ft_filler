@@ -78,12 +78,14 @@ int         check_enemy(t_bord *data, int i, int j)
     int     player;
     int     enemy;
     int     star;
+    int     dot;
 
     row = -1;
     colum = -1;
     player = 0;
     enemy = 0;
     star = 0;
+    dot = 0;
     while (data->token[++colum])
     {
 //        while(data->token[colum][++row])
@@ -97,15 +99,18 @@ int         check_enemy(t_bord *data, int i, int j)
 //                (data->map[i + colum][j + row] == data->player)) // вывод в данной части не коректен
 //                player++;
 //        }
-        while(data->token[colum][++row] && i + colum <= data->map_y && j + row <= data->map_x )
+        while(data->token[colum][++row] && (i + colum) < data->map_y && (j + row) < data->map_x)
         {
             if (data->token[colum][row] == '*')
                 star++;
             if(data->token[colum][row] == '*' &&
-               (data->map[i + colum][j + row] != data->enemy))
+               ((data->map[i + colum][j + row] != data->enemy)))
                 enemy++;
+//            if(data->token[colum][row] == '*' &&
+//               (data->map[i + colum][j + row] == '.'))
+//                dot++;
             if (data->token[colum][row] == '*' &&
-                (data->map[i + colum][j + row] == data->player)) // вывод в данной части не коректен
+                (data->map[i + colum][j + row] == data->player))
                 player++;
         }
         row = -1;
