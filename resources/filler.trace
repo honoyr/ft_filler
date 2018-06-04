@@ -1,2 +1,6 @@
-seed = 9895
-O: error on input
+seed = 8570
+X: error on input
+../beta_filler/dgonor.filler: Segfault at 22
+players/superjeannot.filler won
+Score:
+143AGAINST22

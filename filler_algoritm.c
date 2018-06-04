@@ -54,7 +54,7 @@ void        city_block(t_bord *data)
     {
         while (data->map[i][++j])
         {
-            if(data->map[i][j] == data->enemy || data->map[i][j] == data->enemy + 32)
+            if(data->map[i][j] == data->enemy)
             {
 //                ft_printf("I'm here 2\n");
                 len = distance_block(data, &i, &j);
@@ -99,12 +99,14 @@ int         check_enemy(t_bord *data, int i, int j)
 //                (data->map[i + colum][j + row] == data->player)) // вывод в данной части не коректен
 //                player++;
 //        }
-        while(data->token[colum][++row] && (i + colum) < data->map_y && (j + row) < data->map_x)
+        while(data->token[colum][++row])
+//        while(data->token[colum][++row] && ((i + colum) <= data->map_y) && ((j + row) <= data->map_x))
         {
             if (data->token[colum][row] == '*')
                 star++;
             if(data->token[colum][row] == '*' &&
-               ((data->map[i + colum][j + row] != data->enemy)))
+               ((data->map[i + colum][j + row] != data->enemy) ||
+               (data->map[i + colum][j + row] == '.')))
                 enemy++;
 //            if(data->token[colum][row] == '*' &&
 //               (data->map[i + colum][j + row] == '.'))
