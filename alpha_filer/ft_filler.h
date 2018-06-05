@@ -13,8 +13,7 @@
 #ifndef FT_FILLER_H
 # define FT_FILLER_H
 # include "./libft/libft.h"
-# define COLUMN data->column
-# define ROW data->row
+
 typedef struct		s_bord
 {
 	int		y;
@@ -30,8 +29,11 @@ typedef struct		s_bord
 	int		py;
 	int		px;
 	int		dist;
-	int		column;
-	int		row;
+	// int		column;
+	// int		row;
+	// int		star;
+	// int		map_enemy;
+	// int		map_player;
 }					t_bord;
 
 int					filler(char *line);
