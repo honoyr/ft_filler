@@ -14,6 +14,8 @@
 
 static void		step_order(t_bord *data)
 {
+	data->column = -1;
+	data->row = -1;
 	data->dist = 10000;
 	data->px = 0;
 	data->py = 0;
