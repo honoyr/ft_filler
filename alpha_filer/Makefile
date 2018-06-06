@@ -1,23 +1,10 @@
-NAME = libftprintf.a
-LIBA = libft.a
-SRC = type_o.c \
-	  type_id.c \
-	  type_p.c \
-	  type_s.c \
-	  type_su.c \
-	  type_u.c \
-	  type_und.c \
-	  type_x.c \
-	  ft_printf.c \
-	  type_c.c \
-	  type_cu.c \
-	  ft_unicode.c \
-	  ft_count_bait.c \
-	  ft_width_pr.c \
-	  ft_pointer_to_fu.c \
-	  ft_pars_printf.c \
-	  ft_pars_mod.c \
-	  ft_data_mod.c \
+NAME = libftfiller.a
+BOT = dgonor.filler
+SRC = filler.c \
+	  filler_algoritm.c \
+	  ft_distance_block.c \
+	  ft_map_creator.c \
+	  pars_manager.c \
 
 OB = $(SRC:.c=.o)
 
@@ -100,6 +87,24 @@ SRC_L = ./libft/ft_atoi.c \
 		./libft/ft_itoa_base.c \
 		./libft/print_base.c \
 		./libft/count_nbr.c \
+		./libft/type_o.c \
+		./libft/type_id.c \
+		./libft/type_p.c \
+		./libft/type_s.c \
+		./libft/type_su.c \
+		./libft/type_u.c \
+		./libft/type_und.c \
+		./libft/type_x.c \
+		./libft/ft_printf.c \
+		./libft/type_c.c \
+		./libft/type_cu.c \
+		./libft/ft_unicode.c \
+		./libft/ft_count_bait.c \
+		./libft/ft_width_pr.c \
+		./libft/ft_pointer_to_fu.c \
+		./libft/ft_pars_printf.c \
+		./libft/ft_pars_mod.c \
+		./libft/ft_data_mod.c \
 
 OB_LIBA = $(SRC_L:.c=.o)
 
@@ -182,28 +187,43 @@ OB_R =	ft_atoi.o \
 		ft_itoa_base.o \
 		print_base.o \
 		count_nbr.o \
+		type_o.o \
+		type_id.o \
+		type_p.o \
+		type_s.o \
+		type_su.o \
+		type_u.o \
+		type_und.o \
+		type_x.o \
+		ft_printf.o \
+		type_c.o \
+		type_cu.o \
+		ft_unicode.o \
+		ft_count_bait.o \
+		ft_width_pr.o \
+		ft_pointer_to_fu.o \
+		ft_pars_printf.o \
+		ft_pars_mod.o \
+		ft_data_mod.o \
 
-FLAGS = -Wall -Wextra -Werror -I. -c;
+FLAGS = -Wall -Wextra -Werror;
 
 .PHONY: all, clean, fclean, re;
 
 all: $(NAME)
 
 $(NAME):
-		gcc $(SRC_L) $(FLAGS)
+		gcc -I. -c $(SRC_L) $(FLAGS)
 		ar rc $(NAME) $(OB_R)
 		ranlib $(NAME)
-		gcc  $(SRC) $(FLAGS)
-		ar -q $(NAME) $(OB)
-		ranlib $(NAME)
+		gcc $(SRC) -L. -lftfiller -o $(BOT) $(FLAGS)
 
 clean:
 		/bin/rm -f $(OB)
 		/bin/rm -f $(OB_R)
-		/bin/rm -f $(OB_LIBA)
 
 fclean: clean
 		/bin/rm -f $(NAME)
-		/bin/rm -f ./libft/$(LIBA)
+		/bin/rm -f $(BOT)
 
 re: fclean all
