@@ -14,11 +14,6 @@
 
 static void		step_order(t_bord *data)
 {
-	// data->star = 0;
-	// data->map_enemy = 0;
-	// data->map_player = 0;
-	// data->column = -1;
-	// data->row = -1;
 	data->dist = 10000;
 	data->px = 0;
 	data->py = 0;

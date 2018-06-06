@@ -29,11 +29,7 @@ typedef struct		s_bord
 	int		py;
 	int		px;
 	int		dist;
-	// int		column;
-	// int		row;
-	// int		star;
-	// int		map_enemy;
-	// int		map_player;
+	int		c;
 }					t_bord;
 
 int					filler(char *line);
