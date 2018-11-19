@@ -6,6 +6,8 @@
 
 ## HOW DOES IT LOOKS LIKE
 
+![filler_bot](https://user-images.githubusercontent.com/33399226/48687439-4d478080-eb76-11e8-8315-fa26a3650f60.gif)
+
 # About Filler
 Filler is an algorithmic game which consists in filling a grid of a known size in advance
 with pieces of random size and shapes, without the pieces being stacked more than one
