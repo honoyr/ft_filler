@@ -1,4 +1,8 @@
+# Quick to see
 
+## BOT WINS THE ENEMY
+
+![ezgif-2-fdfbb80d8aa4](https://user-images.githubusercontent.com/33399226/48686502-263a8000-eb71-11e8-9f8c-77f33633ce7b.gif)
 
 # About Filler
 Filler is an algorithmic game which consists in filling a grid of a known size in advance
@@ -58,13 +62,4 @@ Here is an example on how a game will roll out:
 
 
 The makefile creates my player by the name dgonor.filler
-<img width="880" alt="2018-07-04 16 33 05" src="https://user-images.githubusercontent.com/33597605/42280003-2b8ecd02-7fa8-11e8-89ac-01e7d62fd3c2.png">
 
-
-# Start
-
-![ezgif-2-077a097293](https://user-images.githubusercontent.com/33597605/42281884-82700e4c-7fad-11e8-8ffe-f4587cfc7c19.gif)
-
-![ezgif-2-b83740b1c5](https://user-images.githubusercontent.com/33597605/42281739-2317c2a0-7fad-11e8-93e2-a26ceb9e4be6.gif)
-
-![ezgif-2-b93a2f0de1](https://user-images.githubusercontent.com/33597605/42281771-39f6b044-7fad-11e8-868c-159a24312233.gif)
