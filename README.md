@@ -62,4 +62,4 @@ Here is an example on how a game will roll out:
 
 
 The makefile creates my player by the name dgonor.filler
-
+![filler_compilation](https://user-images.githubusercontent.com/33399226/48686692-30a94980-eb72-11e8-81cb-fab6058474c9.png)
